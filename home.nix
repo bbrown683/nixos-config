@@ -9,7 +9,7 @@
 
   # User configurations
   home.file = {
-    ".config/fish".source = config.lib.file.mkOutOfStoreSymlink dotfiles/fish;
+    #".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink dotfiles/fish/config.fish;
     ".config/helix".source = config.lib.file.mkOutOfStoreSymlink dotfiles/helix;
     ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink dotfiles/wezterm;
     ".config/niri".source = config.lib.file.mkOutOfStoreSymlink dotfiles/niri;
