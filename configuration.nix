@@ -5,8 +5,9 @@
     ./terminal.nix
     ./desktop.nix
     ./niri.nix
+    #./sway.nix
     ./dms.nix
-    ./noctalia.nix
+    #./noctalia.nix
   ];
 
   # This value determines the NixOS release from which the default
@@ -20,6 +21,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -37,9 +39,12 @@
   nixpkgs.config.allowUnfree = true;
 
   networking.hostName = "nixos"; # Define your hostname.
+  networking.domain = "coollab.cool";
   # Enable networking
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  hardware.bluetooth.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

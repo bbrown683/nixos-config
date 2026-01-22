@@ -13,6 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    scroll = {
+      url = "github:AsahiRocks/scroll-flake";
+      inputs.nixpkgs.follows = "nixpkgs"; # this assumes nixos unstable
+    };
+
     dms = {
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +29,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, niri, dms, noctalia, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, niri, scroll, dms, noctalia, ... }@inputs: {
     # System Configuration
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -33,6 +38,7 @@
       modules = [
 	      ./configuration.nix
         niri.nixosModules.niri
+        scroll.nixosModules.default
 	      dms.nixosModules.dank-material-shell
 	      noctalia.nixosModules.default
 	      home-manager.nixosModules.home-manager

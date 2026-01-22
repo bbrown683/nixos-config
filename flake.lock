@@ -180,7 +180,64 @@
         "home-manager": "home-manager",
         "niri": "niri",
         "nixpkgs": "nixpkgs",
-        "noctalia": "noctalia"
+        "noctalia": "noctalia",
+        "scroll": "scroll"
+      }
+    },
+    "scroll": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "scroll-git": "scroll-git",
+        "scroll-stable": "scroll-stable"
+      },
+      "locked": {
+        "lastModified": 1769046404,
+        "narHash": "sha256-Wf5c0covp15C0/mLFu1db05wYUQIT+yecSJQGYLbvHA=",
+        "owner": "AsahiRocks",
+        "repo": "scroll-flake",
+        "rev": "f9cb790fa56bcb37878964e70f91fbfa482376d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AsahiRocks",
+        "repo": "scroll-flake",
+        "type": "github"
+      }
+    },
+    "scroll-git": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1769009553,
+        "narHash": "sha256-FuBrTXSK6YhvbyIujdJ12ePeVAILzPrYAF7+iN6TYPU=",
+        "ref": "master",
+        "rev": "15fbd52161e0e9110631993d8c2a824eef6a2351",
+        "revCount": 8113,
+        "type": "git",
+        "url": "https://github.com/dawsers/scroll"
+      },
+      "original": {
+        "ref": "master",
+        "type": "git",
+        "url": "https://github.com/dawsers/scroll"
+      }
+    },
+    "scroll-stable": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767091886,
+        "narHash": "sha256-1P+BHUzFMDN42dx9QCKW2fkkXggFZtmko/sQHeCx9IM=",
+        "ref": "refs/tags/1.12.4",
+        "rev": "7501869147e3066819e33152f3259370453c853f",
+        "revCount": 8062,
+        "type": "git",
+        "url": "https://github.com/dawsers/scroll"
+      },
+      "original": {
+        "ref": "refs/tags/1.12.4",
+        "type": "git",
+        "url": "https://github.com/dawsers/scroll"
       }
     },
     "xwayland-satellite-stable": {
