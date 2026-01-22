@@ -2,10 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./terminal.nix
-    ./desktop.nix
     ./niri.nix
-    #./sway.nix
     ./dms.nix
     #./noctalia.nix
   ];

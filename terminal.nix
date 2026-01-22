@@ -1,25 +1,36 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     fastfetch
-    fd
-    fzf
-    helix
-    ripgrep
-    wezterm
-    zellij
   ];
-  
+
+  # Shell & Config
+  programs.wezterm.enable = true;
   programs.fish.enable = true;
-  programs.git.enable = true;
-  programs.starship.enable = true;
-  programs.yazi.enable = true;
-    
+  programs.starship.enable = true;    
+
+  # Utility commands
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
   };
 
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;  
+  };
+
+  programs.ripgrep.enable = true;
+  programs.fd.enable = true;
   programs.bat.enable = true;
+
+  # Workflow
+  programs.helix = {
+    enable = true;
+    defaultEditor = true;
+  };
+  programs.git.enable = true;
+  programs.yazi.enable = true;
+  programs.zellij.enable = true;
 }
 

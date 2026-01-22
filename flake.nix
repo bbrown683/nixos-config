@@ -29,7 +29,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, niri, scroll, dms, noctalia, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, niri, scroll, dms, noctalia, ... }@inputs: {
     # System Configuration
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -47,9 +47,12 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.ben = ./home.nix;
-            backupFileExtension = "backup";
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nixv
+            #backupFileExtension = "backup";
+            # Optionally, use extraSpecialArgs to pass
+            # arguments to home.nix
+            extraSpecialArgs = {
+              inherit self;
+            };
           };
         }
       ];
