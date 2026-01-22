@@ -9,12 +9,13 @@
 
   # User configurations
   home.file = {
-    #".config/fish".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/fish";
-    ".config/helix".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/helix";
-    ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/wezterm";
-    ".config/niri".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/niri";
-    #".config/noctalia".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/noctalia";
-    #".config/zellij".source = config.lib.file.mkOutOfStoreSymlink .dotfiles/zellij;
+    ".config/fish".source = config.lib.file.mkOutOfStoreSymlink dotfiles/fish;
+    ".config/helix".source = config.lib.file.mkOutOfStoreSymlink dotfiles/helix;
+    ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink dotfiles/wezterm;
+    ".config/niri".source = config.lib.file.mkOutOfStoreSymlink dotfiles/niri;
+    #".config/noctalia".source = config.lib.file.mkOutOfStoreSymlink dotfiles/noctalia;
+    ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink dotfiles/starship.toml;
+    #".config/zellij".source = config.lib.file.mkOutOfStoreSymlink dotfiles/zellij;
   };
 }
 

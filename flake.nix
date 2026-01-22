@@ -13,18 +13,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     dms = {
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, niri, dms, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, niri, dms, noctalia, ... }@inputs: {
     # System Configuration
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -32,20 +32,20 @@
       };
       modules = [
 	      ./configuration.nix
+        niri.nixosModules.niri
 	      dms.nixosModules.dank-material-shell
+	      noctalia.nixosModules.default
 	      home-manager.nixosModules.home-manager
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.ben = ./home.nix;
-
-          # Optionally, use home-manager.extraSpecialArgs to pass
-          # arguments to home.nix
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.ben = ./home.nix;
+            backupFileExtension = "backup";
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nixv
+          };
         }
-        ./terminal.nix
-        ./desktop.nix
-        ./dms.nix
-	      ./noctalia.nix
       ];
     };
   };
