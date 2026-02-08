@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./disk-configuration.nix
     ./niri.nix
     ./dms.nix
     #./noctalia.nix
@@ -37,17 +38,10 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.domain = "coollab.cool";
-  # Enable networking
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   hardware.bluetooth.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ben = {
@@ -64,7 +58,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -77,11 +70,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
   
   # Enable the OpenSSH daemon.
   services.openssh = {

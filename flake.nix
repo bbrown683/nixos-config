@@ -3,6 +3,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,11 +16,6 @@
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    scroll = {
-      url = "github:AsahiRocks/scroll-flake";
-      inputs.nixpkgs.follows = "nixpkgs"; # this assumes nixos unstable
     };
 
     dms = {
@@ -29,7 +29,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, niri, scroll, dms, noctalia, ... }@inputs: {
+  outputs = { self, nixpkgs, disko, home-manager, niri, dms, noctalia, ... }@inputs: {
     # System Configuration
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -37,8 +37,8 @@
       };
       modules = [
 	      ./configuration.nix
+        disko.nixosModules.disko
         niri.nixosModules.niri
-        scroll.nixosModules.default
 	      dms.nixosModules.dank-material-shell
 	      noctalia.nixosModules.default
 	      home-manager.nixosModules.home-manager

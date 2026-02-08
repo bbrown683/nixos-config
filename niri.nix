@@ -9,6 +9,7 @@
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
+    useNautilus = false;
   };
   security.polkit.enable = true; # polkit
   services.gnome.gnome-keyring.enable = true; # secret service

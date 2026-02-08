@@ -7,7 +7,10 @@
   # Shell & Config
   programs.wezterm.enable = true;
   programs.fish.enable = true;
-  programs.starship.enable = true;    
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 
   # Utility commands
   programs.zoxide = {
