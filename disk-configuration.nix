@@ -12,7 +12,7 @@
               type = "EF00";
               content = {
                 type = "filesystem";
-                format = "fat32";
+                format = "vfat";
                 mountpoint = "/boot";
                 mountOptions = [ "umask=0077" ];
               };
@@ -56,7 +56,7 @@
                     };
                     "/swap" = {
                       mountpoint = "/.swapvol";
-                      swap.swapfile.size = "20M"; # Change to be 2X RAM.
+                      swap.swapfile.size = "32G"; # Change to be 2X RAM.
                     };
                   };
                 };

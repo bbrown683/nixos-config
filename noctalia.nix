@@ -5,7 +5,7 @@
   #services.tuned.enable = true;
   #services.upower.enable = true;
  
-  # Enable  a greeter
+  # Enable a greeter
   programs.regreet.enable = true;
   services.greetd = {
     enable = true;
@@ -15,6 +15,6 @@
         user = "ben";
       };
       default_session = initial_session;
-    };    
+    };
   };
 }

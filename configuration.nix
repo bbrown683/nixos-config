@@ -17,7 +17,11 @@
   system.stateVersion = "25.11"; # Did you read the comment?
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.limine = {
+    enable = true;
+    efiSupport = true;
+    efiInstallAsRemovable = true;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -70,7 +74,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
